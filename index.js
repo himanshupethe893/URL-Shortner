@@ -17,7 +17,7 @@ connectTOMongooDB(MONGO_URI).then(()=>{
 });
 app.use(cors());
 app.use(express.json());
-app.use("/url", urlRoutes);
+
 
 // index.js
 
@@ -49,9 +49,10 @@ app.use("/url", urlRoutes);
 // in index.js
 
 // index.js
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/index.html');
-// });
+app.get('/', (req, res) => {
+    res.status(200).send('Backend is running.');
+});
+app.use("/url", urlRoutes);
 app.get("/:shortId", async (req, res) => {
     const shortId = req.params.shortId;
 
@@ -95,5 +96,4 @@ app.get("/:shortId", async (req, res) => {
     }
 });
 app.listen(PORT, () => console.log('Server started at PORT:', PORT));
-
 
