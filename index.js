@@ -49,9 +49,9 @@ app.use("/url", urlRoutes);
 // in index.js
 
 // index.js
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/index.html');
+// });
 app.get("/:shortId", async (req, res) => {
     const shortId = req.params.shortId;
 
@@ -95,4 +95,5 @@ app.get("/:shortId", async (req, res) => {
     }
 });
 app.listen(PORT, () => console.log('Server started at PORT:', PORT));
+
 
